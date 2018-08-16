@@ -7,8 +7,16 @@
   <version>1.0-SNAPSHOT</version>
   <name>my-app</name>
   <url>http://maven.apache.org</url>
-<!--  
-  <distributionManagement>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+<distributionManagement>
                 <repository>
                     <id>internalMavenReleaseRepository</id>
                     <name>Internal Maven Release Repository</name>
@@ -32,22 +40,25 @@
         </snapshots.distribution.url>
 
   </properties>
-  -->
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
   <build>
-<plugins>
-<plugin>
-          <groupId>com.amashchenko.maven.plugin</groupId>
-          <artifactId>gitflow-maven-plugin</artifactId>
-          <version>1.10.0</version>
-    </plugin>
-</plugins>
-</build>
+    <plugins>
+ <plugin>
+        <artifactId>maven-myanimal-plugin</artifactId>
+        <version>1.0</version>
+        <configuration>
+          <animals>
+            <animal>cat</animal>
+            <animal>dog</animal>
+            <animal>aardvark</animal>
+          </animals>
+        </configuration>
+      </plugin>
+     <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.4.0.905</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
+
